@@ -16,6 +16,10 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Create .env file
+        run: |
+          cp .env.example .env
+
       - name: Build and start Docker containers
         run: docker compose up -d --build
 
@@ -26,7 +30,7 @@ jobs:
         run: docker exec laravel_app php artisan key:generate
 
       - name: Run tests with coverage
-        run: docker exec laravel_app php artisan test --coverage --min=0
+        run: docker exec laravel_app php artisan test
 
       - name: Shutdown Docker containers
         if: always()
