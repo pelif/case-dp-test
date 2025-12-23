@@ -46,12 +46,6 @@ services:
       - "3306:3306"
     networks:
       - laravel_network
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
-
-
 
 volumes:
   db_data:

@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     unzip \
+    vim \
+    nano \
     && rm -rf /var/lib/apt/lists/*
 
 # Instalar Node.js e NPM (necessário para Breeze)
