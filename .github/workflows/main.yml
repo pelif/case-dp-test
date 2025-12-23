@@ -29,6 +29,9 @@ jobs:
       - name: Generate application key
         run: docker exec laravel_app php artisan key:generate
 
+      - name: Run migrations
+        run: docker exec laravel_app php artisan migrate --force
+
       - name: Run tests with coverage
         run: docker exec laravel_app php artisan test
 

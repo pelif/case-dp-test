@@ -41,6 +41,10 @@ RUN docker-php-ext-install \
     xml \
     zip
 
+# Instalar PCOV
+RUN pecl install pcov \
+    && docker-php-ext-enable pcov
+
 # Habilitar módulo de reescrita do Apache
 RUN a2enmod rewrite
 
